@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>work</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta meta charset="utf-8" />
+    <link rel="stylesheet" href="style/index.css"/>
+    <link rel="stylesheet" href="style/iconfont.css"/>
+  </head>
+  <body class="bg-back">
+  	<div class="nav">
+  		<div class="n">
+  			<ul>
+  			<li><a href="javascript:location.reload();" class="all"><i class="iconfont icon-xianshiqi"></i> 全部<br/><span>All works</span></a></li>
+  			<li><a href="javascript:;" class="whole"><i class="iconfont icon-html5"></i> 整站<br/><span>Whole site</span></a></li>
+  			<li><a href="javascript:;" class="static"><i class="iconfont icon-yejing"></i> 静态<br/><span>Static site</span></a></li>
+  			<li><a href="javascript:;" class="home"><i class="iconfont icon-huangguan"></i> 主页<br/><span>Home page</span></a></li>
+  			</ul>
+  		</div>
+  	</div>
+  	<div class="pic">
+  		<h1>Welcome to my collection</h1>
+  		<p>life will always leave a track, no matter how bad, no matter how beautiful, are the memories of life.</p>
+  	</div>
+	<div id="content">
+		<i class="iconfont icon-keai"></i> 拼命加载中...
+	</div>
+	<script id="tpl" type="text/template">
+	<ul class="content-list">
+	<%_.each(datas, function(item, index){%>
+		<li>
+			<a href="<%=item.url%>" target="_blank"><h2><%=item.name%></h2></a>
+			<span><%=item.time%> / 分类：<%=item.sort%></span>
+			<div class="img"><img src="php/upload/<%=item.img%>" alt="" class=""></div>
+			<p><%=item.desc%> <a href="<%=item.url%>" target="_blank">[访问]</a></p>
+		</li>
+	<%})%>
+	</ul>
+	</script>
+    <script src="http://cdn.bootcss.com/seajs/3.0.0/sea.js"></script>
+	<script>
+	seajs.config({
+		base : './js/',
+		alias : {
+			'jquery' : "jquery.js",
+			'tpl' : "tpl.js",
+			'underscore' : "http://cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js" 
+		}
+	});
+	seajs.use('index');
+	</script>
+  </body>
+</html>
